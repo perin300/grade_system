@@ -1,0 +1,46 @@
+demo.txt
+<HTML>
+<HEAD>
+</HEAD>
+<BODY>
+<form method="POST" action="{{url('crt_vtype')}}">
+@csrf
+<H1> Manage Vehicle Types </H1> 
+<table border="2">
+<tr>
+<td>
+ <h6>Type Code  *</h6> </td>
+<td>
+<input type="text" placeholder="Vehicle Type" value=""  name="vtype_code" 
+   id="vtype_code"  required>
+</td></tr><td>
+
+<h6>Type Code  *</h6>
+</td><td>
+<input type="text" placeholder="Type Description" value=""  name="vtype_desc" 
+   id="vtype_desc"  required>
+</td></tr>
+</table>
+     <input type="submit" value="Submit Changes" id="editNews" class="button" style="color: white !important;background-color:rgb(155,0,50);">  
+
+</form>
+<table border="2">
+<tr><th>ID</th><th> Type </th><th>Description </th><th>Edit</th></tr>
+@foreach($data as $vtdata)
+
+<tr>
+<td>{{$vtdata->id}}</td>
+<td>{{ $vtdata->vtype_code}}</td>
+<td>{{$vtdata->vtype_desc}} </td>
+<td><a href="">edit</a>  </td>
+//<td><a href='{{url("/viewstuddetail/$d->enroll")}}'><img src="{{url('/images/viewmore.png')}}" class="img-responsive" width="30" height="30"></a></td>
+
+
+</tr>
+@endforeach
+
+</table>
+
+
+</BODY>
+</HTML>
